@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+    <h2 class="text-info font-weight-bold mb-5">Deseja mesmo excluir o registro de {{ classe }} de {{ dado }} ?</h2>
+    <form method='post'>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-info font-weight-bold mr-4">Sim</button>
+        <button type="button" onClick="location.href='{% url 'url_principal' %}'" class="btn btn-outline-info font-weight-bold">Não</button>
+    </form>
+
+{% endblock %}

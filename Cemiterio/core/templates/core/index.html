@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="d-flex justify-content-between mb-5">
+        <img src="{% static 'img/campos4.jpg'%}" class="img-fluid col-6 ml-15 mb-5">
+        <h4 class="mt-4 col-6 pt-4 text-success"><b>Bem vindo(a)</b> ao nosso sistema de gerenciamento de cemitérios!<br><br>Esse sistema foi desenvolvido para <b>CADASTRAR, ATUALIZAR ou EXCLUIR</b> dados referentes à um <b>JAZIGO, ÓBITO OU SEPULTAMENTO.</b><br><br><br><br><i>Esperamos que este sistema lhe sirva bem para o um gerenciamento rápido, intuitivo e seguro!</i>
+        </h4>
+    </div>
+
+    <div class="d-flex justify-content-between mb-5">
+        <img src="{% static 'img/lagos1.jpg'%}" class="img-fluid col-4 ml-15 mb-5">
+        <h5 class="mt-4 col-4 pt-5 text-info"><i>Experimente visualizar os registros atuais!</i> <br><br><br> Vá ao menu <b>LISTAGEM</b> no topo da página e escolha o que deseja listar!</h5>
+        <img src="{% static 'img/lagos3.jpg'%}" class="img-fluid col-4 ml-15 mb-5">
+    </div>
+    
+{% endblock %}

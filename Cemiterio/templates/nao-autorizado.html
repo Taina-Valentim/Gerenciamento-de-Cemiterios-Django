@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <h2 class="text-info font-weight-bold">Não autorizado</h2>
+    <button type="button" onClick="location.href='{% url 'url_principal' %}'" class="btn btn-outline-info col-5 font-weight-bold mt-4">Home</button>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-5">
+        <form class="form-inline" method="post">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" name='pesquisa'>
+            <button class="btn btn-success" type="submit">Pesquisar</button>
+        </form>
+    </nav>
+    {% if messages %}
+        {% for mensagem in messages %}
+            <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{mensagem}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    {% for jazigo in dados %}
+        <div class="card mb-5 col-6 border border-info shadow p-4 mb-4 bg-white">
+            <div class="card-body">
+                <h4>Nome da Família: {{ jazigo.nomeFamilia }}</h4>
+                <br>
+                Local: {{ jazigo.local }}
+                <br>
+                Tamanho: {{ jazigo.tamanho }}
+                <br>
+                Quantidade de Sepulturas: {{ jazigo.qtdSepulturas }}
+
+                {% if jazigo.sepOcupadas %}
+                    <br>
+                    Sepulturas Ocupadas: {{ jazigo.sepOcupadas }}
+                {% endif %}
+                <br><br>
+
+                <button type="button" onClick="location.href='{% url 'url_atualiza_jazigo' jazigo.id %}'" class="btn btn-outline-info font-weight-bold mb-2">Atualizar</button><br>
+                <button type="button" onClick="location.href='{% url 'url_exclui_jazigo' jazigo.id %}'" class="btn btn-outline-info font-weight-bold">Excluir</button><br>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

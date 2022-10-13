@@ -1,0 +1,94 @@
+{% load static %}
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento de Cemitérios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block extrahead %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/header.png'%}" class="img-fluid">
+
+        <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+        <ul class="navbar-nav col-8">
+        <li class="nav-item">
+            <button class="nav-link btn btn-outline-info font-weight-bold mr-2" type="button" onClick="location.href='{% url 'url_principal' %}'">
+                Home
+            </button>
+        </li>
+
+        <li class="pr 10 nav-item pr-10">
+            <button type="button" class="dropdown-toggle nav-link btn btn-outline-info font-weight-bold mr-2" data-toggle="dropdown">
+                Cadastro
+            </button>
+            <div class="dropdown-menu bg-dark">
+                <button class="dropdown-item btn btn-outline-info font-weight-bold text-info mb-2" type="button" onClick="location.href='{% url 'url_cadastro_jazigo' %}'">
+                    Cadastro de Jazigos
+                </button>
+                <button class="dropdown-item btn btn-outline-info font-weight-bold text-info mb-2" type="button" onClick="location.href='{% url 'url_cadastro_obito' %}'">
+                    Cadastro de Óbitos
+                </button>
+                <button class="dropdown-item btn btn-outline-info font-weight-bold text-info mb-2" type="button" onClick="location.href='{% url 'url_cadastro_sepultamento' %}'">
+                    Cadastro de Sepultamentos
+                </button>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <button type="button" class="dropdown-toggle nav-link btn btn-outline-info font-weight-bold" data-toggle="dropdown">
+                Listagem
+            </button>
+            <div class="dropdown-menu bg-dark">
+                <button class="dropdown-item btn btn-outline-info font-weight-bold text-info mb-2" type="button" onClick="location.href='{% url 'url_listagem_jazigos' %}'">
+                    Listagem de Jazigos
+                </button>
+                <button class="dropdown-item btn btn-outline-info font-weight-bold text-info mb-2" type="button" onClick="location.href='{% url 'url_listagem_obitos' %}'">
+                    Listagem de Óbitos
+                </button>
+                <button class="dropdown-item btn btn-outline-info font-weight-bold text-info mb-2" type="button" onClick="location.href='{% url 'url_listagem_sepultamentos' %}'">
+                    Listagem de Sepultamentos
+                </button>
+            </div>
+        </li>
+        </ul>
+        <ul class="navbar-nav col-4">
+            {% if user.get_username %}
+                <li class="nav-item ">
+                    <img src="{% static 'img/perfil_generico.png'%}" alt="Logo" style="width:40px;">
+                </li>
+                <li>
+                    <p class="nav-item font-weight-bold mr-2 ml-2 pt-2 text-info "> User: @{{ user.username }} </p>
+                </li>
+                <li>
+                    <a href="/admin/" class="nav-item btn btn-outline-info font-weight-bold mr-2">Admin</a>
+                </li>
+                <li>
+                    <a href="/accounts/logout/" class="nav-item btn btn-outline-info font-weight-bold">Logout</a>
+                </li>
+            {% else %}
+            <li>
+                <a href="/accounts/registrar/" class="nav-item btn btn-outline-info font-weight-bold mr-2">Registrar-se</a>
+            </li>
+            <li>
+                <a href="/accounts/login/" class="nav-item btn btn-outline-info font-weight-bold">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+        </nav>
+    </header>
+    <main style="background-image: url({% static 'img/nuvem1.png'%});" class="col-12">
+        {% block main %}
+        {% endblock %}
+    </main>
+    <footer style="background-image: url({% static 'img/bg.jpg'%}); padding: 40px 0; text-align: center;" class="col-12">
+        <p class="text-white p-2">Desenvolvido por <b class="text-danger">Tainá Valentim de Lima</b></p>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%  load crispy_forms_tags %} 
+{% block extrahead %}
+    {{ form.media }}
+{% endblock %}
+
+{% block main %}
+    {% if acao == 'Salvar' %}
+        <h1 class="text-info font-weight-bold">Registro de {{ titulo }}</h1>
+    {% else %}
+        <h1 class="text-info font-weight-bold">Atualização de {{ titulo }}</h1>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="form-group w-50">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-outline-info font-weight-bold mr-5 ">{{ acao }}</button>
+        <button type="button" onClick="location.href='{% url 'url_principal' %}'" class="btn btn-outline-info font-weight-bold">Cancelar</button>
+    </form>
+{% endblock %}
