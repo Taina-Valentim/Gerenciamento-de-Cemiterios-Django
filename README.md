@@ -36,8 +36,10 @@ https://cemiterio-jardim-verde.herokuapp.com/
 # Login
 
 Você poderá fazer login no site para testar as funcionalidades
+#
 
-LOGIN DE VISITANTE
+
+# LOGIN DE VISITANTE
 
 Usuário: Visitante
 
@@ -45,8 +47,8 @@ Senha: devs2022
 
 Nível: você poderá ver todas as listagens de dados da página, mas não poderá cadastrar, editar ou excluir dados
 
-
-LOGIN DE FUNCIONÁRIO
+#
+# LOGIN DE FUNCIONÁRIO
 
 Usuário Funcionario
 
